@@ -1,0 +1,13 @@
+<div class="alerts-list">
+    <div
+        *ngFor="let alert of alerts"
+        class="alert"
+        [ngClass]="{
+            'alert-primary': alert.type === alertType.Success,
+            'alert-danger': alert.type === alertType.Error
+        }"
+        role="alert"
+        [@flyInOut]="alert">
+        {{ alert.message }}
+    </div>
+</div>

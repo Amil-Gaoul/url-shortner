@@ -1,0 +1,61 @@
+<nav aria-label="url-shorten">
+    <ul class="pagination">
+        <li
+            class="page-item"
+            [ngClass]="{ 'disabled': pager.currentPage <= 3 }"
+            (click)="(pager.currentPage >= 3) && emitActivePage(1)">
+            <span class="page-link">First</span>
+        </li>
+        <li
+            class="page-item"
+            [ngClass]="{ 'disabled': pager.currentPage === 1 }"
+            (click)="(pager.currentPage > 1) && emitActivePage(pager.currentPage - 1)">
+            <span class="page-link">
+                <fa-icon [icon]="faCaretLeft"></fa-icon>
+            </span>
+        </li>
+        <li
+            class="page-item"
+            *ngIf="pager.currentPage > 3 && pager.totalPages > 5"
+            (click)="emitActivePage(1)">
+            <span class="page-link">1</span>
+        </li>
+        <li
+            class="page-item disabled"
+            *ngIf="pager.currentPage > 3 && pager.totalPages > 5">
+            <span class="page-link">...</span>
+        </li>
+        <li
+            class="page-item"
+            [ngClass]="{ 'active': pager.currentPage === page }"
+            *ngFor="let page of pager.pages"
+            (click)="emitActivePage(page)">
+            <span class="page-link">{{ page }}</span>
+        </li>
+        <li
+            class="page-item disabled"
+            *ngIf="pager.totalPages - pager.currentPage > 2 && pager.totalPages > 5">
+            <span class="page-link">...</span>
+        </li>
+        <li
+            class="page-item"
+            *ngIf="pager.totalPages - pager.currentPage > 2 && pager.totalPages > 5"
+            (click)="emitActivePage(pager.endPage)">
+            <span class="page-link">{{ pager.totalPages }}</span>
+        </li>
+        <li
+            class="page-item"
+            [ngClass]="{ 'disabled': pager.currentPage === pager.totalPages }"
+            (click)="(pager.currentPage < pager.totalPages) && emitActivePage(pager.currentPage + 1)">
+            <span class="page-link">
+                <fa-icon [icon]="faCaretRight"></fa-icon>
+            </span>
+        </li>
+        <li
+            class="page-item"
+            [ngClass]="{ 'disabled': pager.currentPage > (pager.totalPages - 5) }"
+            (click)="(pager.currentPage < pager.totalPages - 3) && emitActivePage(pager.totalPages)">
+            <span class="page-link">Last</span>
+        </li>
+    </ul>
+</nav>
