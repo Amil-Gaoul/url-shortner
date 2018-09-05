@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { ShortUrl } from '../../../shared/models/short-url.model';
 
 @Injectable()
-export class CreateShortUrlService {
+export class ShortUrlService {
 
     headers = new HttpHeaders();
     ulrsObj: OriginalUrl;

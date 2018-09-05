@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { CreateShortUrlService } from './create-short-url.service';
+import { ShortUrlService } from './short-url.service';
 
 describe('Service: CreateShortUrl', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CreateShortUrlService]
+      providers: [ShortUrlService]
     });
   });
 
-  it('should ...', inject([CreateShortUrlService], (service: CreateShortUrlService) => {
+  it('should ...', inject([ShortUrlService], (service: ShortUrlService) => {
     expect(service).toBeTruthy();
   }));
 });

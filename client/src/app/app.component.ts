@@ -1,7 +1,7 @@
 import { Alert } from './shared/models/alert.model';
 import { AlertService } from './core/services/alert/alert.service';
 import { PaginationService } from './core/services/pagination/pagination.service';
-import { CreateShortUrlService } from './core/services/create-short-url/create-short-url.service';
+import { ShortUrlService } from './core/services/short-url/short-url.service';
 
 import { Pager } from './shared/models/pager.model';
 import { Copied } from './shared/models/copied.model';
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     alert: Alert;
 
     constructor(
-        private createShortUrlService: CreateShortUrlService,
+        private shortUrlService: ShortUrlService,
         private paginationService: PaginationService,
         private alertService: AlertService
     ) {
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     }
 
     creatShortUrl() {
-        this.createShortUrlService.createShortUrl(this.url).subscribe(data => {
+        this.shortUrlService.createShortUrl(this.url).subscribe(data => {
             if (data) {
                 this.getAllShortUrls();
             }
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     }
 
     getAllShortUrls() {
-        this.createShortUrlService.getShortUrls().subscribe(data => {
+        this.shortUrlService.getShortUrls().subscribe(data => {
             this.shortUrls = data;
             if (this.shortUrls.length > 5) {
                 this.setActivePage(this.currentPage);

@@ -1,5 +1,5 @@
 import { AlertService } from './services/alert/alert.service';
-import { CreateShortUrlService } from './services/create-short-url/create-short-url.service';
+import { ShortUrlService } from './services/short-url/short-url.service';
 import { PaginationService } from './services/pagination/pagination.service';
 import { NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
     declarations: [ ],
     providers: [
         PaginationService,
-        CreateShortUrlService,
+        ShortUrlService,
         AlertService
     ]
 })
