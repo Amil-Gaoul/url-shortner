@@ -1,5 +1,95 @@
+@import '../../../../variables';
+
+.table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-weight: 100; 
+    background: #333;
+    color: $white;
+    text-rendering: optimizeLegibility;
+}
+
+.table thead th {
+    font-weight: 600;
+}
+
+.table thead th,
+.table tbody td { 
+    padding: .8rem;
+    font-size: 1.4rem;
+}
+
+.table tbody td { 
+    padding: .8rem;
+    font-size: 1.4rem;
+    color: #444;
+    background: #eee;
+}
+
+.table tbody tr:not(:last-child) { 
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;  
+}
+
 .clipboard {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 10px;
+    display: block;
+}
+
+@media screen and (max-width: 992px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        border: none;
+    }
+
+    .table tbody td { 
+        display: block;
+        padding: .6rem;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;  
+        &:last-child {
+            border-bottom: none;
+        }
+        &:first-child {
+            border-top: none;
+        }
+    }
+
+    .table tbody tr td:first-child { 
+        background: #666;
+        color: #fff; 
+    }
+
+    .table tbody td {
+        &:before { 
+            content: attr(data-th); 
+            font-weight: 500;
+            font-size: 0.75rem;
+            display: inline-block;
+            vertical-align: middle;
+            width: 4rem;
+        }
+
+        &:first-child {
+            &:before {
+                display: block;
+                width: 100%;
+            }
+
+            a {
+                color: $white;
+                &:hover {
+                    border-bottom: 1px solid $white;
+                }
+            }
+        }
+    }
+
+    .clipboard {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }

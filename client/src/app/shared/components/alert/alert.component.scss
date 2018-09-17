@@ -1,0 +1,20 @@
+@import '../../../../variables';
+
+.alert {
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.alert-primary {
+    background: $state-gray1;
+    border: 1px solid $state-gray2;
+    color: $blue2;
+}
+
+.alert-danger {
+    background: $pink1;
+    border: 1px solid $pink2;
+    color: $darkred;
+}

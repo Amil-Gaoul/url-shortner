@@ -1,23 +1,35 @@
 <section class="container">
-        <div class="card bg-light mb-3">
-            <div class="card-header">Shorten URL App</div>
-            <div class="card-body">
-                <h5 class="card-title">Simplify your links</h5>
-                <div class="grid">
-                    <div class="row">
-                        <div class="col col-8">
-                            <app-custom-input (emitValue)="changeUrl($event)"></app-custom-input>
-                        </div>
-                        <div class="col col-4">
-                            <app-custom-button (emitClick)="creatShortUrl()"></app-custom-button>
-                        </div>
+    <div class="row">
+        <div class="col col-lg-12 col-md-12 col-sm-8 col-xs-4 title">
+            <h1>Shorten URL App</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-12 col-md-12 col-sm-8 col-xs-4">
+            <h5>Simplify your links</h5>
+            <div class="form">
+                <div class="row">
+                    <div class="col col-lg-8 col-md-8 col-sm-8 col-xs-4 input">
+                        <app-custom-input (emitValue)="changeUrl($event)"></app-custom-input>
+                    </div>
+                    <div class="col col-lg-4 col-md-4 col-sm-8 col-xs-4 button">
+                        <app-custom-button (emitClick)="creatShortUrl()"></app-custom-button>
                     </div>
                 </div>
             </div>
         </div>
-    <app-table *ngIf="shortUrls.length" [shortUrls]="shortUrls" [pager]="pager" (emitCopied)="copied($event)"></app-table>
-    <div class="nav justify-content-end">
-        <app-pagination *ngIf="shortUrls.length > 5" [pager]="pager" (emitPage)="setActivePage($event)"></app-pagination>
+    </div>
+    <div class="row">
+        <div class="col col-lg-12 col-md-12 col-sm-8 col-xs-4">
+            <app-table *ngIf="shortUrls.length" [shortUrls]="shortUrls" [pager]="pager" (emitCopied)="copied($event)"></app-table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-7 col-md-7 col-sm-1 col-xs-0"></div>
+        <div class="col col-lg-5 col-md-5 col-sm-6 col-xs-4 pagination">
+            <app-pagination *ngIf="shortUrls.length > 5" [pager]="pager" (emitPage)="setActivePage($event)"></app-pagination>
+        </div>
+        <div class="col col-lg-0 col-md-0 col-sm-1 col-xs-0"></div>
     </div>
 </section>
 

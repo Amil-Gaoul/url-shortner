@@ -1,5 +1,5 @@
 import { FlyInOutAnimation } from './alert.animation';
-import { AlertType } from './../../models/alert-type.enum';
+import { AlertType } from './../../models/enums/alert-type.enum';
 import { Alert } from './../../models/alert.model';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 

@@ -17,6 +17,9 @@ module.exports = app => {
 
     app.get('/api/items', async (req, res) => {
         const result = await UrlShort.find();
+        if (!result) {
+            res.status(404).json('Can"t find short URL"s');
+        }
         res.status(200).json(result);
     });
 

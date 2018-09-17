@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'fonts';
+@import 'custom-normalize';
+@import 'grid';
+@import 'variables';
+
+body {
+    font-family: $font;
+    color: $dark;
+}
+
+a {
+    color: $blue3;
+    border-bottom: 1px solid transparent;
+    transition: border .3s;
+    &:hover {
+        border-bottom: 1px solid $blue3;
+    }
+}

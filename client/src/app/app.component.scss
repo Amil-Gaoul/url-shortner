@@ -1,6 +1,31 @@
+@import '../grid';
+
 .alerts {
     position: fixed;
     top: 50px;
     right: 30px;
     width: 300px;
+}
+
+.title {
+    font-weight: 600;
+    padding: 2.5rem 0;
+}
+
+.form {
+    padding-bottom: 2.5rem;
+}
+
+.pagination {
+    padding: 1.5rem 0;
+}
+
+@media screen and (max-width: $screen-sm-min) {
+    .input {
+        padding: 0 0 1rem;
+    }
+
+    .button {
+        padding: 0;
+    }
 }

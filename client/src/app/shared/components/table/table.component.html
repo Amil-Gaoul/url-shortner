@@ -1,17 +1,18 @@
-<table class="table table-hover">
+<table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Original URL</th>
-            <th scope="col">Created</th>
-            <th colspan="2" scope="col">Short URL</th>
+            <th #headers scope="col">Original URL</th>
+            <th #headers scope="col">Created</th>
+            <th #headers scope="col">Short URL</th>
+            <th #headers scope="col">Copy</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let item of (shortUrls | paging : pager.currentPage : pager.pageSize)">
+    <tbody #body>
+        <tr #rows *ngFor="let item of (shortUrls | paging : pager.currentPage : pager.pageSize)">
             <td>
-                <a [attr.href]="item.originalUrl">{{ item.originalUrl | truncate : 40 }}</a>
+                <a [attr.href]="item.originalUrl">{{ item.originalUrl | truncate : truncSymbols }}</a>
             </td>
-            <td>{{ item.createdAt | datex : 'DD.MM.YYYY:HH:mm'}}</td>
+            <td>{{ item.createdAt | date : formatDate }}</td>
             <td>
                 <a [attr.href]="item.shortUrl">{{ item.shortUrl }}</a>
             </td>

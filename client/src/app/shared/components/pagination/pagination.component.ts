@@ -1,6 +1,5 @@
 import { Pager } from './../../models/pager.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-pagination',
@@ -11,9 +10,6 @@ export class PaginationComponent implements OnInit {
 
     @Input() pager: Pager;
     @Output() emitPage: EventEmitter<number> = new EventEmitter<number>();
-
-    faCaretLeft = faCaretLeft;
-    faCaretRight = faCaretRight;
 
     constructor() { }
 

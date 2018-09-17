@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { CustomInput } from './../../models/custom-input.model';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'app-custom-input',
@@ -7,7 +9,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CustomInputComponent implements OnInit {
 
+    @Input() model: CustomInput;
+    @Input() form: FormGroup;
     @Output() emitValue: EventEmitter<string> = new EventEmitter<string>();
+    control: FormControl;
     value: string;
 
     constructor() { }

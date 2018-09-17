@@ -1,0 +1,104 @@
+$screen-md-min: 1200px;
+$screen-sm-min: 992px;
+$screen-xs-min: 768px;
+
+@mixin cols($class, $col, $width) {
+    @for $i from 1 through $col {
+        #{$class}#{$i} {
+            @if $i < $col {
+                width: $width * $i;
+            } @else if $i == $col {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.container {
+    width: 1170px;
+    max-width: 100%;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+    max-width: 100%;
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.col {
+    float: left;
+    min-height: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    &:first-child {
+        padding-left: 0;
+    }
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.col-lg-0 {
+    display: none;
+}
+
+@include cols('.col-lg-', 12, 8.33333%);
+
+
+@media screen and (max-width: $screen-md-min) {
+    .container {
+        width: 970px;
+    }
+
+    .col {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-md-0 {
+        display: none;
+    }
+
+    @include cols('.col-md-', 12, 8.33333%);
+}
+
+@media screen and (max-width: $screen-sm-min) {
+    .container {
+        width: 750px;
+    }
+
+    .col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .col-sm-0 {
+        display: none;
+    }
+
+    @include cols('.col-sm-', 8, 12.5%);
+}
+
+@media screen and (max-width: $screen-xs-min) {
+    .container {
+        width: 100%;
+    }
+
+    .col {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .col-xs-0 {
+        display: none;
+    }
+
+    @include cols('.col-xs-', 4, 25%);
+}

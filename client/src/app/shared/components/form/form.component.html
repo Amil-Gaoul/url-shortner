@@ -1,0 +1,3 @@
+<form [formGroup]="formGroup">
+    <app-custom-input *ngFor="let input of inputes" [model]="input" (emitValue)="validForm($event)"></app-custom-input>
+</form>

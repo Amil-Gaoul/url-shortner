@@ -1,5 +1,5 @@
 import { Alert } from './../../../shared/models/alert.model';
-import { AlertType } from './../../../shared/models/alert-type.enum';
+import { AlertType } from './../../../shared/models/enums/alert-type.enum';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';

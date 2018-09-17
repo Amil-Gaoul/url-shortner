@@ -1,5 +1,20 @@
-.btn-custom {
+@import '../../../../variables';
+
+.button {
+    color: $blue2;
     text-transform: uppercase;
+    text-align: center;
     box-shadow: none;
     outline: none;
+    width: 100%;
+    background: transparent;
+    border: 1px solid $blue2;
+    padding: 0.625rem 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background .3s, color .3s;
+    &:hover {
+        background: $blue2;
+        color: $white;
+    }
 }

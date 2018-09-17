@@ -1,1 +1,8 @@
-<button type="button" class="btn btn-outline-primary btn-lg btn-custom" (click)="btnClick()">Shorten URL</button>
+<button
+    type="button"
+    class="button"
+    [ngClass]="{ 'button-disabled': isDisabled }"
+    [disabled]="isDisabled"
+    (click)="btnClick()">
+    Shorten URL
+</button>

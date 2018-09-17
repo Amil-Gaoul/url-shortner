@@ -1,3 +1,14 @@
 .clipboard {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: opacity .3s;
+    &:hover {
+        opacity: .6;
+    }
+}
+
+.clipboard-img {
+    width: 1.5rem;
+    height: 1.5rem;
 }
