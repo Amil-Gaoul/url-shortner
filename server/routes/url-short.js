@@ -50,7 +50,8 @@ module.exports = app => {
                 res.status(400).json('Invalid User Id');
             }
         } else {
-            return res.status(400).json('Invalid Original Url');
+            // TODO по идее в type должен быть enum
+            return res.status(400).json({ message: 'Invalid Original Url', type: 1 });
         }
     });
 };

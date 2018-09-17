@@ -3,6 +3,7 @@ import { CreateShortUrlService } from './services/create-short-url/create-short-
 import { PaginationService } from './services/pagination/pagination.service';
 import { NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PopupService } from './services/popup/popup.service';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     providers: [
         PaginationService,
         CreateShortUrlService,
-        AlertService
+        AlertService,
+        PopupService
     ]
 })
 export class CoreModule {

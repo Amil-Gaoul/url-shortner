@@ -1,17 +1,18 @@
-@import '../../../../variables';
+@import '~variables.scss';
 
 .table {
     width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
     font-weight: 100; 
-    background: #333;
+    background: $gray2;
     color: $white;
     text-rendering: optimizeLegibility;
 }
 
 .table thead th {
     font-weight: 600;
+    text-align: left;
 }
 
 .table thead th,
@@ -23,20 +24,20 @@
 .table tbody td { 
     padding: .8rem;
     font-size: 1.4rem;
-    color: #444;
-    background: #eee;
+    color: $gray3;
+    background: $white3;;
 }
 
 .table tbody tr:not(:last-child) { 
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;  
+    border-top: 1px solid $white2;
+    border-bottom: 1px solid $white2;  
 }
 
 .clipboard {
     display: block;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: $screen-sm-min) {
     .table thead {
         display: none;
     }
@@ -48,8 +49,8 @@
     .table tbody td { 
         display: block;
         padding: .6rem;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;  
+        border-top: 1px solid $white2;
+        border-bottom: 1px solid $white2;  
         &:last-child {
             border-bottom: none;
         }
@@ -59,8 +60,8 @@
     }
 
     .table tbody tr td:first-child { 
-        background: #666;
-        color: #fff; 
+        background: $gray4;
+        color: $white; 
     }
 
     .table tbody td {

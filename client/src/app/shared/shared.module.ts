@@ -9,6 +9,8 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { TableComponent } from './components/table/table.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormComponent } from './components/form/form.component';
+import { PopupContainerComponent } from './components/popup-container/popup-container.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 import { PagingPipe } from './pipes/paging/paging.pipe';
 import { TruncatePipe } from './pipes/truncate/truncate.pipe';
@@ -27,6 +29,8 @@ import { TruncatePipe } from './pipes/truncate/truncate.pipe';
         ClipboardComponent,
         AlertComponent,
         FormComponent,
+        PopupComponent,
+        PopupContainerComponent,
         PagingPipe,
         TruncatePipe
     ],
@@ -38,6 +42,8 @@ import { TruncatePipe } from './pipes/truncate/truncate.pipe';
         ClipboardComponent,
         AlertComponent,
         FormComponent,
+        PopupComponent,
+        PopupContainerComponent,
         PagingPipe,
         TruncatePipe
     ]

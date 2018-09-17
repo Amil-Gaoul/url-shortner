@@ -1,4 +1,4 @@
-@import '../../../../variables';
+@import '~variables.scss';
 
 .custom-input {
     border-radius: 0.25rem;
@@ -63,4 +63,5 @@
 
 .custom-input-error {
     color: $pink2;
+    font-size: 0.75rem;
 }

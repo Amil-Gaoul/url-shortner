@@ -1,4 +1,5 @@
 import { Alert } from './shared/models/alert.model';
+import { PopupService } from './core/services/popup/popup.service';
 import { AlertService } from './core/services/alert/alert.service';
 import { PaginationService } from './core/services/pagination/pagination.service';
 import { CreateShortUrlService } from './core/services/create-short-url/create-short-url.service';
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
     constructor(
         private createShortUrlService: CreateShortUrlService,
         private paginationService: PaginationService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private popupService: PopupService
     ) {
         this.alertService.getAlert(this.id).subscribe((alert: Alert) => {
             if (!alert.message) {
@@ -41,6 +43,10 @@ export class AppComponent implements OnInit {
         this.currentPage = 1;
         this.setActivePage(this.currentPage);
         this.getAllShortUrls();
+    }
+
+    popup() {
+        // this.popupService.open();
     }
 
     creatShortUrl(url: string) {

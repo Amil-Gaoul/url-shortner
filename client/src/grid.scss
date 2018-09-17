@@ -1,6 +1,4 @@
-$screen-md-min: 1200px;
-$screen-sm-min: 992px;
-$screen-xs-min: 768px;
+@import '~variables.scss';
 
 @mixin cols($class, $col, $width) {
     @for $i from 1 through $col {

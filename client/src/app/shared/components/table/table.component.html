@@ -7,7 +7,7 @@
             <th #headers scope="col">Copy</th>
         </tr>
     </thead>
-    <tbody #body>
+    <tbody>
         <tr #rows *ngFor="let item of (shortUrls | paging : pager.currentPage : pager.pageSize)">
             <td>
                 <a [attr.href]="item.originalUrl">{{ item.originalUrl | truncate : truncSymbols }}</a>

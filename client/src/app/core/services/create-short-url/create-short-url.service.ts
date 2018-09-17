@@ -1,3 +1,6 @@
+import { Error } from './../../../shared/models/error.model';
+import { PopupService } from './../popup/popup.service';
+import { ErrorType } from './../../../shared/models/enums/error-type.enum';
 import { OriginalUrl } from './../../../shared/models/original-url.model';
 import { environment } from './../../../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -12,8 +15,11 @@ export class CreateShortUrlService {
 
     headers = new Headers();
     ulrsObj: OriginalUrl;
+    errorType: any;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private popupService: PopupService) {
+        this.errorType = ErrorType;
+    }
 
     createShortUrl(url): Observable<ShortUrl> {
         this.ulrsObj = {
@@ -51,6 +57,11 @@ export class CreateShortUrlService {
     }
 
     private handleError(err) {
+        const data: Error = err.json();
+        // TODO поскольку валидация урла происходит на бэке, то выдаем сообщение
+        if (data.type === this.errorType.BadOrigianlUrl) {
+            this.popupService.openPopup({ message: data.message });
+        }
         return Observable.throw(err);
     }
 

@@ -6,7 +6,6 @@ import {
     Input,
     Output,
     EventEmitter,
-    ViewChild,
     ElementRef,
     ViewChildren,
     QueryList,
@@ -28,7 +27,6 @@ export class TableComponent implements AfterViewInit, OnDestroy {
 
     @ViewChildren('headers') tableHeaders: QueryList<ElementRef>;
     @ViewChildren('rows') tableRows: QueryList<ElementRef>;
-    @ViewChild('body') tableBody: ElementRef;
     formatDate: 'dd/MM/YYYY';
     truncSymbols = 40;
     private headerText: any[] = [];
