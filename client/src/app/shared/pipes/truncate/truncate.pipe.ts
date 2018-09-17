@@ -9,7 +9,6 @@ export class TruncatePipe implements PipeTransform {
         if (!value) {
             return '';
         }
-        console.log(limit);
         if (!limit) {
             limit = 25;
         }

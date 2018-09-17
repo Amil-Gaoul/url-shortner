@@ -1,5 +1,18 @@
-<div class="custom-input">
-    <input class="custom-input-field" id="input" type="text" [(ngModel)]="value" (ngModelChange)="changeValue($event)" required>
-    <label class="custom-input-placeholder" for="input">Your original URL here</label>
+<div class="custom-input" [formGroup]="form">
+    <input
+        class="custom-input-field"
+        [id]="model.id"
+        [type]="model.type"
+        [(ngModel)]="model.value"
+        [formControlName]="model.id"
+        (ngModelChange)="changeValue()"
+        autocomplete="off"
+        required>
+    <label class="custom-input-placeholder" [for]="model.id">{{ model.placeholder }}</label>
     <label class="custom-input-border"></label>
+    <label
+        class="custom-input-border"
+        [ngClass]="{ 'custom-input-border-error': control.invalid && (control.dirty || control.touched) }"
+    ></label>
 </div>
+<label *ngIf="control.invalid && (control.dirty || control.touched)" class="custom-input-error">{{ model.errorText }}</label>

@@ -11,7 +11,6 @@ export class PaginationService {
         let totalPages = Math.ceil(totalItems / pageSize),
             startPage: number, endPage: number;
 
-        console.log(totalItems);
         if (totalPages <= 5) {
             startPage = 1;
             endPage = totalPages;

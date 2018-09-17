@@ -3,6 +3,7 @@ export class CustomInput {
         public id: string,
         public value: string,
         public placeholder: string,
+        public errorText: string,
         public type: string
     ) { }
 }

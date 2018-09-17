@@ -18,3 +18,11 @@
         color: $white;
     }
 }
+
+.button-disabled {
+    cursor: default;
+    pointer-events: none;
+    background: $gray;
+    border: $gray;
+    color: $white;
+}

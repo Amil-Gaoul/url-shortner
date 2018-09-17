@@ -1,0 +1,11 @@
+@import '../../../../grid';
+
+@media screen and (max-width: $screen-sm-min) {
+    .input {
+        padding: 0 0 1rem;
+    }
+
+    .button {
+        padding: 0;
+    }
+}

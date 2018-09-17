@@ -8,14 +8,7 @@
         <div class="col col-lg-12 col-md-12 col-sm-8 col-xs-4">
             <h5>Simplify your links</h5>
             <div class="form">
-                <div class="row">
-                    <div class="col col-lg-8 col-md-8 col-sm-8 col-xs-4 input">
-                        <app-custom-input (emitValue)="changeUrl($event)"></app-custom-input>
-                    </div>
-                    <div class="col col-lg-4 col-md-4 col-sm-8 col-xs-4 button">
-                        <app-custom-button (emitClick)="creatShortUrl()"></app-custom-button>
-                    </div>
-                </div>
+                <app-form (emitUrl)="creatShortUrl($event)"></app-form>
             </div>
         </div>
     </div>

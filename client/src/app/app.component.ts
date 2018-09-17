@@ -15,7 +15,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-    url: string;
     shortUrls: ShortUrl[] = [];
     isCopySucces: boolean;
     pager: Pager;
@@ -44,8 +43,8 @@ export class AppComponent implements OnInit {
         this.getAllShortUrls();
     }
 
-    creatShortUrl() {
-        this.createShortUrlService.createShortUrl(this.url).subscribe(data => {
+    creatShortUrl(url: string) {
+        this.createShortUrlService.createShortUrl(url).subscribe(data => {
             if (data) {
                 this.getAllShortUrls();
             }
@@ -59,10 +58,6 @@ export class AppComponent implements OnInit {
                 this.setActivePage(this.currentPage);
             }
         });
-    }
-
-    changeUrl(ev) {
-        this.url = ev;
     }
 
     copied(ev: Copied) {

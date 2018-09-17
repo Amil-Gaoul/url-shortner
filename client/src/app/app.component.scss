@@ -1,5 +1,3 @@
-@import '../grid';
-
 .alerts {
     position: fixed;
     top: 50px;
@@ -18,14 +16,4 @@
 
 .pagination {
     padding: 1.5rem 0;
-}
-
-@media screen and (max-width: $screen-sm-min) {
-    .input {
-        padding: 0 0 1rem;
-    }
-
-    .button {
-        padding: 0;
-    }
 }

@@ -1,5 +1,5 @@
 import { CustomInput } from './../../models/custom-input.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,21 +9,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
+    @Output() emitUrl: EventEmitter<string> = new EventEmitter<string>();
     formGroup: FormGroup;
     isDisabled: boolean;
     inputs: CustomInput[];
 
-    constructor(private formBuild: FormBuilder) { }
+    constructor(private formBuild: FormBuilder) {
+        this.formGroup = this.formBuild.group({
+            url: [ '', [Validators.required] ]
+        });
+    }
 
     ngOnInit() {
         this.isDisabled = true;
-        this.initForm();
-    }
-
-    initForm() {
-        this.formGroup = this.formBuild.group({
-            url: [ '', Validators.required ]
-        });
+        this.initControls();
     }
 
     initControls() {
@@ -32,6 +31,7 @@ export class FormComponent implements OnInit {
                 id: 'url',
                 value: null,
                 placeholder: 'Your original URL here',
+                errorText: 'URL is required',
                 type: 'text'
             }
         ];
@@ -43,6 +43,10 @@ export class FormComponent implements OnInit {
             return;
         }
         this.isDisabled = true;
+    }
+
+    creatShortUrl() {
+        this.emitUrl.emit(this.inputs[0].value);
     }
 
 }
