@@ -58,8 +58,8 @@ export class CreateShortUrlService {
 
     private handleError(err) {
         const data: Error = err.json();
-        // TODO поскольку валидация урла происходит на бэке, то выдаем сообщение
-        if (data.type === this.errorType.BadOrigianlUrl) {
+        // TODO поскольку валидация урла происходит на бэке, то выдаем сообщение через popup
+        if (data.type && data.type === this.errorType.BadOrigianlUrl) {
             this.popupService.openPopup({ message: data.message });
         }
         return Observable.throw(err);

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validUrl = require('valid-url');
 const UrlShort = mongoose.model('UrlShort');
+const ErrorsEnum = require('./../models/error.enum');
 const shortid = require('shortid');
 const errorUrl='http://localhost/error';
 
@@ -18,7 +19,7 @@ module.exports = app => {
     app.get('/api/items', async (req, res) => {
         const result = await UrlShort.find();
         if (!result) {
-            res.status(404).json('Can"t find short URL"s');
+            res.status(404).json({ message: 'Can"t find short URL"s', type: ErrorsEnum.CantFindShortUrls });
         }
         res.status(200).json(result);
     });
@@ -26,7 +27,7 @@ module.exports = app => {
     app.post('/api/item', async (req, res) => {
         const { originalUrl, shortBaseUrl } = req.body;
         if (!validUrl.isUri(shortBaseUrl)) {
-            return res.status(400).json('Invalid Base Url');
+            return res.status(400).json({ message: 'Invalid Base Url', type: ErrorsEnum.InvalidBaseUrl });
         }
         const urlCode = shortid.generate();
         const updatedAt = new Date();
@@ -47,11 +48,10 @@ module.exports = app => {
                     res.status(200).json(item);
                 }
             } catch (err) {
-                res.status(400).json('Invalid User Id');
+                res.status(400).json({ message: 'Invalid User Id', type: ErrorsEnum.InvalidUserId });
             }
         } else {
-            // TODO по идее в type должен быть enum
-            return res.status(400).json({ message: 'Invalid Original Url', type: 1 });
+            return res.status(400).json({ message: 'Invalid Original Url', type: ErrorsEnum.BadOrigianlUrl });
         }
     });
 };

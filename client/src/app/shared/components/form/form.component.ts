@@ -11,17 +11,15 @@ export class FormComponent implements OnInit {
 
     @Output() emitUrl: EventEmitter<string> = new EventEmitter<string>();
     formGroup: FormGroup;
-    isDisabled: boolean;
     inputs: CustomInput[];
 
     constructor(private formBuild: FormBuilder) {
         this.formGroup = this.formBuild.group({
-            url: [ '', [Validators.required] ]
+            url: [ null, [Validators.required] ]
         });
     }
 
     ngOnInit() {
-        this.isDisabled = true;
         this.initControls();
     }
 
@@ -35,14 +33,6 @@ export class FormComponent implements OnInit {
                 type: 'text'
             }
         ];
-    }
-
-    validForm() {
-        if (this.formGroup.valid) {
-            this.isDisabled = false;
-            return;
-        }
-        this.isDisabled = true;
     }
 
     creatShortUrl() {

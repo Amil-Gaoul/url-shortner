@@ -1,10 +1,10 @@
 <form [formGroup]="formGroup">
     <div class="row" *ngFor="let input of inputs">
         <div class="col col-lg-8 col-md-8 col-sm-8 col-xs-4 input">
-            <app-custom-input *ngIf="input" [model]="input" [form]="formGroup" (emitValue)="validForm()"></app-custom-input>
+            <app-custom-input *ngIf="input" [model]="input" [form]="formGroup"></app-custom-input>
         </div>
         <div class="col col-lg-4 col-md-4 col-sm-8 col-xs-4 button">
-            <app-custom-button [isDisabled]="isDisabled" (emitClick)="creatShortUrl()"></app-custom-button>
+            <app-custom-button [isDisabled]="!formGroup.valid" (emitClick)="creatShortUrl()"></app-custom-button>
         </div>
     </div>
 </form>
